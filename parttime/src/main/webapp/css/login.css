@@ -1,0 +1,159 @@
+body{
+	font-family: "微软雅黑";
+}
+.smallStyle{
+	color: Orange;
+	font-size: 200px;
+}
+.link_right{
+	float: right;
+	line-height: 50px;
+}
+.middle{
+	position: relative;
+    background: url("../images/rainbow.gif") no-repeat;
+    background-size: cover;
+    padding-bottom: 20px;
+    min-height: 549px;
+}
+.clearfix:after{
+	height: 0;
+	clear:both;
+	visiblity:hidden;
+	content: '.';
+	display: block;
+}
+/*内容区域*/
+.contain{
+	width: 960px;
+    margin: 0 auto
+}
+.fix{
+	zoom:1;
+}
+.carousel{
+	width: 400px;
+	height: 300px;
+}
+.cont_left{
+	float: left;
+	width: 400px;
+    height: 300px;
+    position: relative;
+    top: 100px;
+}
+/*右边区域 登录&注册*/
+.cont_right{
+	position: relative;
+    width: 470px;
+    height: 430px;
+    left: 100px;
+    top: 100px;
+    margin: 0 auto;
+    float: right;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #12a591;
+    padding: 30px 44px 44px;
+}
+.lo_login li{
+	margin: 20px 0;
+	list-style: none;
+}
+.lo_login label{
+	width: 302px;
+	height: 30px;
+	text-align: right;
+}
+.lo_login input{
+	height: 30px;
+	width: 302px;
+	font-size: 14px;
+	color: #999;
+	border:0;
+	border-bottom: 1px solid #ddd;
+}
+#VALITBOX{
+	height: 30px;
+	width: 200px;
+	font-size: 14px;
+	color: #999;
+	border:0;
+	border-bottom: 1px solid #ddd;
+}
+.hide{
+	display: none;
+}
+/*兼兼字体*/
+.tab{
+	padding: 0 0 10px 40px;
+	color: green;
+	box-sizing: border-box;
+	border-bottom: 2px dashed #00b38a;
+}
+.tab i{
+	display: inline-block;
+    width: 4px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 10px;
+    background-color: #00b38a;
+}
+.tab span{
+	font-size: 18px;
+	letter-spacing: 3px;
+}
+/*验证码颜色*/
+.lo_login .valitSpan{
+	padding: 0 18px;
+	height: 30px;
+	color:#00b38a;
+	cursor: pointer;
+	display: inline-block;
+	box-sizing: border-box;
+}
+/*协议*/
+.confirmInfo{
+	margin: 0 auto;
+	width: 100%;
+}
+.confirmInfo p{
+	width: 100%;
+	text-align: center;
+}
+.xieyi{
+	margin-left: 10px;
+	color:#00b38a;
+}
+/*提交按钮*/
+.submitBtn {
+    display: block;
+    height: 46px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 46px;
+    color: #fff;
+    border-radius: 3px;
+    background: #00b38a;
+    text-align: center;
+    cursor: pointer;
+}
+/*跳登录按钮*/
+.loadPage{
+	width: 100%;
+	text-align: center;
+}
+.loadPage a{
+	width: 100%;
+	color: #00b38a;
+	cursor: pointer;
+}
+/*尾部*/
+.pageFooter{
+	padding: 34px 0;
+	width: 100%;
+	color: #00b38a;
+	text-align: center;
+	box-sizing: border-box;
+	background-color: #FFFFF0;
+}

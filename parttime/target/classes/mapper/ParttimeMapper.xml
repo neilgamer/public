@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxh.job.mapper.ParttimeMapper">
+  <resultMap id="BaseResultMap" type="com.zxh.job.pojo.Parttime">
+    <id column="pt_id" jdbcType="INTEGER" property="pt_id" />
+    <result column="e_id" jdbcType="INTEGER" property="e_id" />
+    <result column="pt_name" jdbcType="VARCHAR" property="pt_name" />
+    <result column="pt_money" jdbcType="REAL" property="pt_money" />
+    <result column="pt_detail" jdbcType="VARCHAR" property="pt_detail" />
+    <result column="pt_starttime" jdbcType="DATE" property="pt_starttime" />
+    <result column="pt_stoptime" jdbcType="DATE" property="pt_stoptime" />
+    <result column="pt_province" jdbcType="VARCHAR" property="pt_province" />
+    <result column="pt_city" jdbcType="VARCHAR" property="pt_city" />
+    <result column="pt_area" jdbcType="VARCHAR" property="pt_area" />
+    <result column="pt_address" jdbcType="VARCHAR" property="pt_address" />
+    <result column="pt_review" jdbcType="BIT" property="pt_review" />
+    <result column="pt_reviewtime" jdbcType="DATE" property="pt_reviewtime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    pt_id, e_id, pt_name, pt_money, pt_detail, pt_starttime, pt_stoptime, pt_province, 
+    pt_city, pt_area, pt_address, pt_review, pt_reviewtime
+  </sql>
+  <select id="selectByExample" parameterType="com.zxh.job.pojo.ParttimeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from parttime
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from parttime
+    where pt_id = #{pt_id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from parttime
+    where pt_id = #{pt_id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="pt_id" keyProperty="pt_id" parameterType="com.zxh.job.pojo.Parttime" useGeneratedKeys="true">
+    insert into parttime (e_id, pt_name, pt_money, 
+      pt_detail, pt_starttime, pt_stoptime, 
+      pt_province, pt_city, pt_area, 
+      pt_address, pt_review, pt_reviewtime
+      )
+    values (#{e_id,jdbcType=INTEGER}, #{pt_name,jdbcType=VARCHAR}, #{pt_money,jdbcType=REAL}, 
+      #{pt_detail,jdbcType=VARCHAR}, #{pt_starttime,jdbcType=DATE}, #{pt_stoptime,jdbcType=DATE}, 
+      #{pt_province,jdbcType=VARCHAR}, #{pt_city,jdbcType=VARCHAR}, #{pt_area,jdbcType=VARCHAR}, 
+      #{pt_address,jdbcType=VARCHAR}, #{pt_review,jdbcType=BIT}, #{pt_reviewtime,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="pt_id" keyProperty="pt_id" parameterType="com.zxh.job.pojo.Parttime" useGeneratedKeys="true">
+    insert into parttime
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="e_id != null">
+        e_id,
+      </if>
+      <if test="pt_name != null">
+        pt_name,
+      </if>
+      <if test="pt_money != null">
+        pt_money,
+      </if>
+      <if test="pt_detail != null">
+        pt_detail,
+      </if>
+      <if test="pt_starttime != null">
+        pt_starttime,
+      </if>
+      <if test="pt_stoptime != null">
+        pt_stoptime,
+      </if>
+      <if test="pt_province != null">
+        pt_province,
+      </if>
+      <if test="pt_city != null">
+        pt_city,
+      </if>
+      <if test="pt_area != null">
+        pt_area,
+      </if>
+      <if test="pt_address != null">
+        pt_address,
+      </if>
+      <if test="pt_review != null">
+        pt_review,
+      </if>
+      <if test="pt_reviewtime != null">
+        pt_reviewtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="e_id != null">
+        #{e_id,jdbcType=INTEGER},
+      </if>
+      <if test="pt_name != null">
+        #{pt_name,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_money != null">
+        #{pt_money,jdbcType=REAL},
+      </if>
+      <if test="pt_detail != null">
+        #{pt_detail,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_starttime != null">
+        #{pt_starttime,jdbcType=DATE},
+      </if>
+      <if test="pt_stoptime != null">
+        #{pt_stoptime,jdbcType=DATE},
+      </if>
+      <if test="pt_province != null">
+        #{pt_province,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_city != null">
+        #{pt_city,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_area != null">
+        #{pt_area,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_address != null">
+        #{pt_address,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_review != null">
+        #{pt_review,jdbcType=BIT},
+      </if>
+      <if test="pt_reviewtime != null">
+        #{pt_reviewtime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zxh.job.pojo.Parttime">
+    update parttime
+    <set>
+      <if test="e_id != null">
+        e_id = #{e_id,jdbcType=INTEGER},
+      </if>
+      <if test="pt_name != null">
+        pt_name = #{pt_name,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_money != null">
+        pt_money = #{pt_money,jdbcType=REAL},
+      </if>
+      <if test="pt_detail != null">
+        pt_detail = #{pt_detail,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_starttime != null">
+        pt_starttime = #{pt_starttime,jdbcType=DATE},
+      </if>
+      <if test="pt_stoptime != null">
+        pt_stoptime = #{pt_stoptime,jdbcType=DATE},
+      </if>
+      <if test="pt_province != null">
+        pt_province = #{pt_province,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_city != null">
+        pt_city = #{pt_city,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_area != null">
+        pt_area = #{pt_area,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_address != null">
+        pt_address = #{pt_address,jdbcType=VARCHAR},
+      </if>
+      <if test="pt_review != null">
+        pt_review = #{pt_review,jdbcType=BIT},
+      </if>
+      <if test="pt_reviewtime != null">
+        pt_reviewtime = #{pt_reviewtime,jdbcType=DATE},
+      </if>
+    </set>
+    where pt_id = #{pt_id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zxh.job.pojo.Parttime">
+    update parttime
+    set e_id = #{e_id,jdbcType=INTEGER},
+      pt_name = #{pt_name,jdbcType=VARCHAR},
+      pt_money = #{pt_money,jdbcType=REAL},
+      pt_detail = #{pt_detail,jdbcType=VARCHAR},
+      pt_starttime = #{pt_starttime,jdbcType=DATE},
+      pt_stoptime = #{pt_stoptime,jdbcType=DATE},
+      pt_province = #{pt_province,jdbcType=VARCHAR},
+      pt_city = #{pt_city,jdbcType=VARCHAR},
+      pt_area = #{pt_area,jdbcType=VARCHAR},
+      pt_address = #{pt_address,jdbcType=VARCHAR},
+      pt_review = #{pt_review,jdbcType=BIT},
+      pt_reviewtime = #{pt_reviewtime,jdbcType=DATE}
+    where pt_id = #{pt_id,jdbcType=INTEGER}
+  </update>
+</mapper>

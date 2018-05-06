@@ -1,0 +1,46 @@
+ .frosted-glass
+    {
+		/*../images/timg1.jpg*/
+       background:url() no-repeat;
+       background-position: left top;
+       background-size:100% 100%;
+       margin:0px; 
+       padding:0px;
+       background-attachment: fixed;
+
+    }
+
+    .glass
+    {
+        width: 100%;
+        height: 100%;
+        background: inherit;  
+        position: relative;
+
+    }
+    .glass
+    {
+         content: '';
+         position: fixed;
+         top: 0; right: 0; bottom: 0; left: 0;
+         -webkit-filter: blur(5px);   
+         -moz-filter: blur(5px);   
+         -ms-filter: blur(5px);   
+         -o-filter: blur(5px);   
+         filter: blur(5px);   
+         filter: progid:DXImageTransform.
+         Microsoft.Blur(PixelRadius=4, MakeShadow=false);   
+    }
+    .personloginsubmit {
+	    width: 100%;
+    	border: 0;
+    	padding: 5px 0;
+    	background-color: rgb(253,129,0);
+    	color: white;
+    }
+    .loginregister {border: 0 solid;
+    outline: none;
+    width: 230px;}
+    .loginregisterdata {border: 0 solid;
+    outline: none;
+    width: 230px;}
